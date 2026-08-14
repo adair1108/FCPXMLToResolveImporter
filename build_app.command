@@ -4,11 +4,18 @@ set -e
 cd "$(dirname "$0")"
 
 APP_NAME="FCPXMLToResolveImporter"
-OUTPUT_APP_NAME="FCPXMLto达芬奇媒体池"
 SCHEME="FCPXMLToResolveImporter"
 CONFIGURATION="Release"
 BUILD_DIR="$(pwd)/build"
 DIST_DIR="$(pwd)/dist"
+
+echo "========== 检查 App 图标文件 =========="
+if [ ! -f "FCPXMLToResolveImporter/AppIcon.icns" ]; then
+  echo "警告：没有找到 FCPXMLToResolveImporter/AppIcon.icns，打包后可能没有自定义图标。"
+else
+  echo "已找到图标：FCPXMLToResolveImporter/AppIcon.icns"
+fi
+xattr -dr com.apple.quarantine FCPXMLToResolveImporter/AppIcon.icns 2>/dev/null || true
 
 echo "========== 检查 Xcode 命令行工具 =========="
 if ! command -v xcodebuild >/dev/null 2>&1; then
@@ -40,11 +47,11 @@ if [ ! -d "$APP_PATH" ]; then
 fi
 
 echo "========== 拷贝 App 到 dist =========="
-cp -R "$APP_PATH" "$DIST_DIR/$OUTPUT_APP_NAME.app"
+cp -R "$APP_PATH" "$DIST_DIR/"
 
 echo "========== 完成 =========="
 echo "App 已生成："
-echo "$DIST_DIR/$OUTPUT_APP_NAME.app"
+echo "$DIST_DIR/$APP_NAME.app"
 echo ""
 echo "如果 macOS 提示无法打开，可在终端执行："
-echo "xattr -dr com.apple.quarantine \"$DIST_DIR/$OUTPUT_APP_NAME.app\""
+echo "xattr -dr com.apple.quarantine \"$DIST_DIR/$APP_NAME.app\""
