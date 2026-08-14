@@ -1,4 +1,4 @@
-# FCPXMLToResolveImporter 完整工程版 v1.1
+# FCPXMLToResolveImporter 完整工程版 v1.0.0
 
 ![主界面截图](%E6%88%AA%E5%B1%8F2026-08-14%2020.34.19.png)
 
@@ -80,7 +80,7 @@ python3 FCPXMLToResolveImporter/resolve_importer.py inspect-list /你的路径/�
 ```
 
 
-## v1.2 修改
+## v0.2 修改
 
 修复 macOS 文件选择器无法选择 `.fcpxmld` 的问题。
 
@@ -97,7 +97,7 @@ python3 FCPXMLToResolveImporter/resolve_importer.py inspect-list /你的路径/�
 这样 `.fcpxmld` 可以正常被选中。
 
 
-## v1.3 修改
+## v0.3 修改
 
 修复部分 Xcode / macOS SDK 下编译失败的问题。
 
@@ -121,7 +121,7 @@ panel.treatsFilePackagesAsDirectories = false
 并在用户选择后手动判断扩展名是否为 `.fcpxml` 或 `.fcpxmld`。
 
 
-## v1.4 修改
+## v0.4 修改
 
 修复部分机器上 App 找不到 `DaVinciResolveScript.py` 的问题。
 
@@ -146,7 +146,7 @@ panel.treatsFilePackagesAsDirectories = false
 如果仍然失败，App 会把所有检查过的路径显示出来。
 
 
-## v1.5 修改
+## v0.5 修改
 
 修复 Studio 版 Resolve 的 `fusionscript.so` 路径问题。
 
@@ -184,7 +184,7 @@ DYLD_LIBRARY_PATH
 优先使用 Studio.app 内的库路径。
 
 
-## v1.6 修改
+## v0.6 修改
 
 修复 v1.5 中 `RESOLVE_SCRIPT_LIB` 设置错误的问题。
 
@@ -203,7 +203,7 @@ export RESOLVE_SCRIPT_LIB="/Applications/DaVinci Resolve Studio.app/Contents/Lib
 v1.6 已自动改为写入完整文件路径，同时 `DYLD_LIBRARY_PATH` 仍使用 `fusionscript.so` 所在目录。
 
 
-## v1.7 修改
+## v0.7 修改
 
 新增“未完全链接时持续弹窗重新选择目录”功能。
 
@@ -223,7 +223,7 @@ v1.6 已自动改为写入完整文件路径，同时 `DYLD_LIBRARY_PATH` 仍使
 跳过后，未链接文件会继续沿用 FCPXML 中的原路径写入 `media_list.txt`。
 
 
-## v1.8 修改
+## v0.8 修改
 
 新增“选择已有清单”按钮。
 
